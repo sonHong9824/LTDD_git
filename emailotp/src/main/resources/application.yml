@@ -10,3 +10,13 @@ spring:
           auth: true
           starttls:
             enable: true
+
+  datasource:
+    url: "jdbc:mysql://localhost:3306/ltdd"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    password: root
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
