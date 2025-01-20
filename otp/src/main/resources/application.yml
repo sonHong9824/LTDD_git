@@ -1,0 +1,24 @@
+spring:
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: sonpexel@gmail.com
+        password: oiekkyvlpnjyyaid
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+    datasource:
+        url: jdbc:mysql://localhost:3306/baiTap
+        username: root
+        password: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jpa:
+            hibernate:
+                ddl-auto: update  # Tùy ch?n: "none", "update", "create", "create-drop"
+            show-sql: true       # Hi?n th? câu l?nh SQL trong log
+            properties:
+                hibernate:
+                    dialect: org.hibernate.dialect.MySQLDialect
