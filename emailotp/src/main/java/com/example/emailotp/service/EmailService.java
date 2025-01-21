@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
+
     @Autowired
     private JavaMailSender mailSender;
 
@@ -14,7 +15,7 @@ public class EmailService {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);
         message.setSubject("OTP Confirmation");
-        message.setText("Your OTP code is: " + otp);
+        message.setText("Mã OTP của bạn là: " + otp);
 
         mailSender.send(message);
     }
