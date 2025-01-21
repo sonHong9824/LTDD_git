@@ -5,6 +5,8 @@ import com.example.emailotp.repositoy.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
@@ -31,5 +33,16 @@ public class UserService {
         userRepository.save(user);
         return "Đăng ký thành công";
 
+    }
+    public String forgetPassword(String email, String password, String otp) {
+        String message = otpService.verifyForgotPassword(email, otp);
+        if (!message.equals("OTP xác nhận thành công")) {
+            return message;
+        }
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        User user = userOptional.get();
+        user.setPassword(password);
+        userRepository.save(user);
+        return "Đã thay đổi mật khẩu";
     }
 }
